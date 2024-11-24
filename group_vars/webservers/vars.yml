@@ -1,0 +1,6 @@
+redmine_db_mysql: db
+redmine_db_password: 123
+redmine_secret_key_base: secret123
+secret_key_base: supersecretkey
+mysql_database: redmine
+mysql_root_password: {{ mysql_root_password_vault }}
