@@ -5,7 +5,7 @@
     - geerlingguy.docker
 
   tasks:
-    - name: create environment file
+    - name: Сreate environment file
       ansible.builtin.template:
         src: templates/.env.j2
         dest: /etc/.env
@@ -15,4 +15,16 @@
       ansible.builtin.template:
         src: templates/docker-compose.yml.j2
         dest: /etc/docker-compose.yml
+      tags: deploy
+
+    - name: Ensure Docker Compose is installed
+      community.docker.docker_compose_v2:
+        project_src: /etc
+        state: present
+      tags: deploy
+
+    - name: Run Docker Compose
+      community.docker.docker_compose_v2:
+        project_src: /etc
+        state: present
       tags: deploy
