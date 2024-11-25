@@ -5,10 +5,14 @@ services:
     ports:
       - 3000:3000
     environment: 
-      env_file: /etc/.env
+      REDMINE_DB_MYSQL: {{ redmine_db_mysql }}
+      REDMINE_DB_PASSWORD: {{ redmine_db_password }}
+      REDMINE_SECRET_KEY_BASE: {{ redmine_secret_key_base }}
+      SECRET_KEY_BASE: {{ secret_key_base}}
 
   db:
     image: mysql:8.0
     restart: always
     environment:
-      env_file: /etc/.env
+      MYSQL_ROOT_PASSWORD: {{ mysql_root_password }}
+      MYSQL_DATABASE: {{ mysql_database }}

@@ -5,11 +5,11 @@
     - geerlingguy.docker
 
   tasks:
-    - name: Сreate environment file
-      ansible.builtin.template:
-        src: templates/.env.j2
-        dest: /etc/.env
-      tags: deploy
+    # - name: Сreate environment file
+    #   ansible.builtin.template:
+    #     src: templates/.env.j2
+    #     dest: /etc/.env
+    #   tags: deploy
 
     - name: Copy docker-compose.yml
       ansible.builtin.template:
