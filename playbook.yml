@@ -11,14 +11,19 @@
         dest: /etc/docker-compose.yml
       tags: deploy
 
-    - name: Ensure Docker Compose is installed
-      community.docker.docker_compose_v2:
-        project_src: /etc
-        state: present
-      tags: deploy
-
     - name: Run Docker Compose
       community.docker.docker_compose_v2:
         project_src: /etc
         state: present
       tags: deploy
+
+- hosts: webservers
+  become: true
+  vars:
+    datadog_api_key: {{ datadog_api_key }}
+  tasks:
+    - name: Import the Datadog Agent role from the Datadog collection
+      import_role:
+        name: datadog.dd.agent
+      tags: log
+
