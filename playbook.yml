@@ -20,7 +20,7 @@
 - hosts: webservers
   become: true
   vars:
-    datadog_api_key: {{ datadog_api_key }}
+    datadog_api_key: "{{ datadog_api_key }}"
   tasks:
     - name: Import the Datadog Agent role from the Datadog collection
       import_role:
