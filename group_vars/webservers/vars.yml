@@ -4,4 +4,4 @@ redmine_secret_key_base: secret123
 secret_key_base: supersecretkey
 mysql_database: redmine
 mysql_root_password: "{{ mysql_root_password_vault }}"
-datadog_api_key: {{ datadog_api_key_vault }}
+datadog_api_key: "{{ datadog_api_key_vault }}"
