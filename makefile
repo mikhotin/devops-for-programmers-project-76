@@ -6,3 +6,6 @@ syntax:
 
 deploy:
 	ansible-playbook -i inventory.ini playbook.yml --ask-vault-pass
+
+datadog:
+	ansible-playbook -i inventory.ini playbook.yml --tags datadog --ask-vault-pass
