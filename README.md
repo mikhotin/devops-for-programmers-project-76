@@ -4,7 +4,7 @@
 [![Actions Status](https://github.com/mikhotin/devops-for-programmers-project-76/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/mikhotin/devops-for-programmers-project-76/actions)
 
 ## Описание
-Этот проект предназначен для автоматизации развертывания и мониторинга приложений с использованием Ansible и Docker.
+Проект предназначен для автоматизации развертывания и мониторинга приложений с использованием Ansible и Docker.
 
 ## Зависимости
 Проект использует следующие роли и коллекции Ansible:
@@ -29,7 +29,7 @@ make deploy
 ```
 
 ## Проверка конфигурации
-Для проверки синтаксиса Ansible плейбуков выполните следующую команду:make syntax
+Для проверки синтаксиса Ansible плейбуков выполните следующую команду
 ```sh
 make syntax
 ```
