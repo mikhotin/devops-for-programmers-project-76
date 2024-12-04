@@ -11,11 +11,30 @@
         dest: /etc/docker-compose.yml
       tags: deploy
 
+    - name: Get Docker service status
+      command: systemctl status docker
+      register: docker_status
+      ignore_errors: true
+
+    - name: Show Docker service status
+      debug:
+        var: docker_status
+
+    - name: Check if Docker is available
+      command: docker --version
+      register: docker_version
+      ignore_errors: true
+
+    - name: Show Docker version
+      debug:
+        var: docker_version
+
     - name: Ensure Docker is started
       ansible.builtin.systemd:
         name: docker
         state: started
         enabled: yes
+      tags: deploy
 
     - name: Run Docker Compose
       community.docker.docker_compose:
