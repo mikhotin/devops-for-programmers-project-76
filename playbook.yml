@@ -11,6 +11,12 @@
         dest: /etc/docker-compose.yml
       tags: deploy
 
+    - name: Ensure Docker is started
+      ansible.builtin.systemd:
+        name: docker
+        state: started
+        enabled: yes
+
     - name: Run Docker Compose
       community.docker.docker_compose:
         project_src: /etc
