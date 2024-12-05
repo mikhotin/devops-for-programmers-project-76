@@ -5,6 +5,29 @@
     - geerlingguy.docker
 
   tasks:
+    - name: Install aptitude
+      ansible.builtin.apt:
+        name: aptitude
+        state: present
+        update_cache: true
+
+    - name: Install required system packages
+      ansible.builtin.apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: present
+        update_cache: true
+
+    - name: Install Docker Module for Python
+      ansible.builtin.pip:
+        name: docker
+
     - name: Copy docker-compose.yml
       ansible.builtin.template:
         src: templates/docker-compose.yml.j2
@@ -12,7 +35,7 @@
       tags: deploy
 
     - name: Run Docker Compose
-      community.docker.docker_compose:
+      community.docker.docker_compose_v2:
         project_src: /etc
         state: present
       tags: deploy
