@@ -2,6 +2,10 @@
   become: true
 
   tasks:
+    - name: Log the value of the variable with a message
+      debug:
+        msg: "Value of the variable: {{ redmine_db_mysql }}"
+
     - name: Install aptitude
       ansible.builtin.apt:
         name: aptitude
