@@ -1,6 +1,9 @@
 - hosts: all
   become: true
 
+  vars:
+    redmine_db_mysql: {{ redmine_db_mysql }}
+
   tasks:
     - name: Log all variables
       debug:
