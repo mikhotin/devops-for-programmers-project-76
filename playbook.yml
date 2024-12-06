@@ -2,7 +2,7 @@
   become: true
 
   vars:
-    redmine_db_mysql: {{ redmine_db_mysql }}
+    redmine_db_mysql: db
 
   tasks:
     - name: Log all variables
