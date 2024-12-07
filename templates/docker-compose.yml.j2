@@ -5,14 +5,14 @@ services:
     ports:
       - 3000:3000
     environment: 
-      REDMINE_DB_MYSQL: {{ redmine_db_mysql }}
-      REDMINE_DB_PASSWORD: {{ mysql_root_password }}
-      SECRET_KEY_BASE: {{ secret_key_base}}
-      REDMINE_DB_USERNAME: root
+      - REDMINE_DB_MYSQL={{ redmine_db_mysql }}
+      - REDMINE_DB_PASSWORD={{ mysql_root_password }}
+      - SECRET_KEY_BASE={{ secret_key_base }}
+      - REDMINE_DB_USERNAME=root
 
   db:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: {{ mysql_root_password }}
-      MYSQL_DATABASE: {{ mysql_database }}
+      - MYSQL_ROOT_PASSWORD={{ mysql_root_password }}
+      - MYSQL_DATABASE={{ mysql_database }}
